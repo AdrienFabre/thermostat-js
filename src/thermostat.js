@@ -9,7 +9,11 @@ export class Thermostat {
   }
 
   down() {
+    if (this.temperature > 10) {
     this.temperature -= 1;
+    }
   }
+
+
 }
 
