@@ -36,6 +36,12 @@ describe("Thermostat", () => {
       expect(thermostat.temperature).toBe(25);
     });
 
+    it('thermostat temperature comes back to 20 degree when using reset', () => {
+      for (let i=0; i<4; i++){ thermostat.up()}
+      thermostat.reset()
+      expect(thermostat.temperature).toBe(20);
+    });
+
   });
 
   describe("Power saving mode is OFF", () => {

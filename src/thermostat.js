@@ -19,6 +19,10 @@ export class Thermostat {
     }
   }
 
+  reset() {
+    this.temperature = 20;
+  }
+
 
 }
 
