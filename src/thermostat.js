@@ -6,7 +6,9 @@ export class Thermostat {
   }
 
   up() {
-    if (this.temperature < 25) {
+    if (this.powerSavingMode == false && this.temperature < 32) {
+      this.temperature += 1;
+      } else if (this.temperature < 25) {
     this.temperature += 1;
     }
   }

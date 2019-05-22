@@ -31,9 +31,26 @@ describe("Thermostat", () => {
       expect(thermostat.temperature).toBe(10);
     });
 
-    it('thermostat temperature can not be higher than 25 degrees', () => {
+   it('thermostat temperature can not be higher than 25 degrees', () => {
       for (let i=0; i<7; i++){ thermostat.up()}
       expect(thermostat.temperature).toBe(25);
+    });
+
+  });
+
+  describe("Power saving mode is OFF", () => {
+
+    beforeEach(() => {
+      thermostat.powerSavingMode = false;
+    });
+    it('thermostat temperature can be higher than 25 degrees', () => {
+      for (let i=0; i<10; i++){ thermostat.up()}
+      expect(thermostat.temperature).toBe(30);
+    });
+
+    it('thermostat temperature can not be higher than 32 degrees', () => {
+      for (let i=0; i<15; i++){ thermostat.up()}
+      expect(thermostat.temperature).toBe(32);
     });
 
   });
